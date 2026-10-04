@@ -1,0 +1,14 @@
+{
+  "name": "@nexus-core-monolith/chat-backend",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {},
+  "dependencies": {
+    "@nexus-core-monolith/shared": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module"
+}

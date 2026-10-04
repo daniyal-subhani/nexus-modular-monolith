@@ -1,0 +1,47 @@
+name: CD Pipeline
+
+on:
+  # Yeh safeguard hai: CD sirf tab trigger hogi jab CI Pipeline successfully paas ho jaye!
+  workflow_run:
+    workflows: ['CI Pipeline']
+    types:
+      - completed
+  workflow_dispatch:
+jobs:
+  deploy:
+    name: Build & Deploy to Production
+    runs-on: ubuntu-latest
+    # 🔒 Yahan sabse bada security check hai:
+    # 1. CI pipeline ka result 'success' hona lazmi hai
+    # 2. Code sirf 'main' branch ka hona chahiye (dev branch par deployment nahi hogi)
+    if: ${{ github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' }}
+    steps:
+      # 1. Code Checkout karo
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # 2. pnpm setup karo
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+      # 3. Node.js setup karo
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.16.0
+          cache: pnpm
+      # 4. Dependencies install kro
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      # 5. Project ko production ke liye Build karo
+      - name: Build Project
+        run: pnpm build
+      # 6. Live server par deploy karo
+      # - name: Deploy to Live Server
+      # run:
+# Deployment will be added once the
+# production infrastructure is decided.
+#
+# Examples:
+# - Build Docker image
+# - Push image to a container registry # - Deploy to VPS / AWS / Azure / etc.

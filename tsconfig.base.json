@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    // Language & Environment
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    // Strict & Quality Checks (sabse imp)
+    "strict": true,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "declaration": true,
+    "sourceMap": true,
+    "noEmitOnError": true,
+    // Interop & Miscellaneous
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}

@@ -1,0 +1,50 @@
+name: CI Pipeline
+
+# 1. Kab chalna hai? (Trigger)
+on:
+  push:
+    branches:
+      - main
+      - dev
+  pull_request:
+    branches:
+      - main
+      - dev
+jobs:
+  build-and-test:
+    name: Quality Checks
+    runs-on: ubuntu-latest
+    # Step 1: Aapke repo ka code server per download karo
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+        # Step 2: pnpm package manager install karo
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+        # Step 3: Node.js setup karo
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24.16.0
+          cache: pnpm
+        # Step 4: Dependencies install karo (pnpm install)
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      # Step 5: ESLint run karo (errors check karne ke liye)
+      - name: Lint
+        run: pnpm lint
+      #  Step 6: Typescript Type Check run karo
+      - name: Typecheck
+        run: pnpm typecheck
+      # Step 7: Format your code
+      - name: Format
+        run: pnpm format
+      # Step 8: Tests run karo
+      # - name: Test
+      # run: pnpm test
+      # - name: Build
+      # run: pnpm build

@@ -1,0 +1,8 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./apps/api-gateway" },
+    { "path": "./apps/chat-backend" },
+    { "path": "./packages/shared" }
+  ]
+}
