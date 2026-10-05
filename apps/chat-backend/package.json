@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@nexus-core-monolith/shared": "workspace:*"
   },
