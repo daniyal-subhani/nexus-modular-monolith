@@ -4,7 +4,7 @@ import { Logger, LoggerOptions, Level } from 'pino';
 export interface LoggerConfig {
   serviceName: string;
   level?: Level;
-  environment: 'development' | 'production' | 'test';
+  environment: 'production' | 'development' | 'test';
 }
 
 const REDACT_PATHS = [
