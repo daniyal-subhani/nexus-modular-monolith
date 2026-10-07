@@ -1,16 +1,24 @@
 import express, { Application } from 'express';
-import { corsMiddleware } from './middleware/cors.middleware.js';
-import { createHttpServiceLogger } from '@nexus-core-monolith/shared';
-import { gatewayLogger } from './config/logger.js';
-import { requestIdMiddleware } from './middleware/request.id.middleware.js';
 import helmet from 'helmet';
+import {
+  corsMidd,
+  globalErrorHandler,
+  httpReqLogger,
+  notFoundMiddleware,
+  rateLimitMidd,
+  reqIdMidd,
+} from './middleware/index.middleware.js';
 
 const app: Application = express();
 
+app.use(reqIdMidd.requestIdMiddleware);
+app.use(httpReqLogger);
+app.use(corsMidd.corsMiddleware);
 app.use(helmet());
-app.use(requestIdMiddleware);
-app.use(createHttpServiceLogger(gatewayLogger));
-app.use(corsMiddleware);
-app.use(express());
+app.use(express.json({ limit: '1mb' }));
+app.use(rateLimitMidd.requestRateLimitMiddleware);
+
+app.use(notFoundMiddleware);
+app.use(globalErrorHandler);
 
 export { app };

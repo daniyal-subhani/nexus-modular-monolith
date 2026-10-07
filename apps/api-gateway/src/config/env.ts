@@ -8,4 +8,5 @@ export const env = createServiceEnv({
   CORS_ORIGIN: z.url(),
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
   REDIS_URL: z.url(),
+  JWT_SECRET: z.string(),
 });
