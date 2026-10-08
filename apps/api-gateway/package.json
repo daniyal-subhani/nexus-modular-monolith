@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@nexus-core-monolith/shared": "workspace:*",
+    "compression": "^1.8.2",
     "cors": "^2.8.6",
     "dotenv": "^18.0.5",
     "express": "^5.2.1",
@@ -23,6 +24,7 @@
   "license": "ISC",
   "type": "module",
   "devDependencies": {
+    "@types/compression": "^1.8.1",
     "@types/cors": "^2.8.19",
     "@types/dotenv": "^8.2.3",
     "@types/express": "^5.0.6",

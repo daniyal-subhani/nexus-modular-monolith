@@ -7,3 +7,4 @@ export * from './global.error.middleware.js';
 export * from './http.logger.middleware.js';
 export * from './not.found.middleware.js';
 export * from './validation.middleware.js';
+export * from './compression.middleware.js';

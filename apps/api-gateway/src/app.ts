@@ -1,6 +1,7 @@
 import express, { Application } from 'express';
 import helmet from 'helmet';
 import {
+  compressionMiddleware,
   corsMidd,
   globalErrorHandler,
   httpReqLogger,
@@ -17,6 +18,7 @@ app.use(corsMidd.corsMiddleware);
 app.use(helmet());
 app.use(express.json({ limit: '1mb' }));
 app.use(rateLimitMidd.requestRateLimitMiddleware);
+app.use(compressionMiddleware);
 
 app.use(notFoundMiddleware);
 app.use(globalErrorHandler);
