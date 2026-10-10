@@ -1,13 +1,20 @@
 import { AppError, type ApiErrorResponse } from '@nexus-core-monolith/shared';
 import type { ErrorRequestHandler } from 'express';
 
-export const globalErrorHandler: ErrorRequestHandler = (err, _req, res, _next) => {
+export const globalErrorHandler: ErrorRequestHandler = (err, _req, res, next) => {
+  if (res.headersSent) {
+    next(err);
+    return;
+  }
   if (err instanceof AppError) {
     const response: ApiErrorResponse = {
       success: false,
       error: {
         code: err.code,
         message: err.message,
+        ...(err.details !== undefined && {
+          details: err.details,
+        }),
       },
     };
     res.status(err.statusCode).json(response);
