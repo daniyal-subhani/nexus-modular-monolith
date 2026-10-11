@@ -9,5 +9,6 @@ export const env = createServiceEnv({
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace']).default('info'),
   REDIS_URL: z.url(),
   JWT_SECRET: z.string(),
-  PORT: z.number(),
+  PORT: z.number().min(1),
+  CHAT_SERVICE_URL: z.url().min(1),
 });
