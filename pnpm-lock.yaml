@@ -363,21 +363,30 @@ importers:
       '@nexus-core-monolith/shared':
         specifier: workspace:*
         version: link:../../packages/shared
+      argon2:
+        specifier: ^0.45.1
+        version: 0.45.1
       dotenv:
         specifier: ^18.0.5
         version: 18.0.5
       drizzle-orm:
         specifier: 1.0.0-rc.4
-        version: 1.0.0-rc.4(@types/pg@8.23.1)(pg@8.23.1)(zod@4.6.5)
+        version: 1.0.0-rc.4(@types/pg@8.23.1)(pg@8.23.1)(postgres@3.4.9)(zod@4.6.5)
       express:
         specifier: ^5.2.1
         version: 5.2.1
+      jose:
+        specifier: ^6.2.12
+        version: 6.2.12
       pg:
         specifier: ^8.23.1
         version: 8.23.1
       pino:
         specifier: ^10.4.0
         version: 10.4.0
+      postgres:
+        specifier: ^3.4.9
+        version: 3.4.9
     devDependencies:
       '@types/dotenv':
         specifier: ^8.2.3
@@ -611,6 +620,12 @@ packages:
     resolution:
       {
         integrity: sha512-yHwomvolVafvUXhy5TdiJVkuNCxXn+bKOs2aWiWEQh/5YaV97Oa/abJz3dmx7lxgIUsUlS1Jl4mEfvJPo3YsVw==,
+      }
+
+  '@epic-web/invariant@1.0.0':
+    resolution:
+      {
+        integrity: sha512-lrTPqgvfFQtR/eY/qkIzp98OGdNJu0m5ji3q/nJI8v3SXkRKEnWiOxMmbvcSoAIzv/cGiuvRy57k4suKQSAdwA==,
       }
 
   '@esbuild/aix-ppc64@0.25.12':
@@ -1207,6 +1222,13 @@ packages:
         integrity: sha512-dXn3FZhPv0US+7dtJsIi2R+c7qWYiReoEh5zUntWCf4oSpMNib8FDhSoed6m3QyZdx5hK7iLFkYk3rNxwt8vTA==,
       }
 
+  '@phc/format@1.0.0':
+    resolution:
+      {
+        integrity: sha512-m7X9U6BG2+J+R1lSOdCiITLLrxm+cWlNI3HUFA92oLO77ObGNzaKdh8pMLqdZcshtkKuV84olNNXDfMc4FezBQ==,
+      }
+    engines: { node: '>=10' }
+
   '@pinojs/redact@0.4.0':
     resolution:
       {
@@ -1488,6 +1510,13 @@ packages:
       }
     engines: { node: '>=12' }
 
+  argon2@0.45.1:
+    resolution:
+      {
+        integrity: sha512-skm+/WCjkGqCQxF7FG1LuZXM5yvbFjgbfiCGsud2oLgaDhh6b6dbH0b1EkghbM+xx4Bj8Ape+KKgixoIlWZicQ==,
+      }
+    engines: { node: '>=16.17.0' }
+
   argparse@2.0.1:
     resolution:
       {
@@ -1690,6 +1719,14 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
+
+  cross-env@10.1.0:
+    resolution:
+      {
+        integrity: sha512-GsYosgnACZTADcmEyJctkJIoqAhHjttw7RsFrVoJNXbsWWqaq6Ym+7kZjq6mS45O0jij6vtiReppKQEtqWy6Dw==,
+      }
+    engines: { node: '>=20' }
+    hasBin: true
 
   cross-spawn@7.0.6:
     resolution:
@@ -2661,6 +2698,20 @@ packages:
       }
     engines: { node: '>=18' }
 
+  node-addon-api@8.9.2:
+    resolution:
+      {
+        integrity: sha512-VijLXbi3UACN69I0JVXJsX4tjACjNoQDgv2gTF6sx2wWEi8tkSg2eX8p5gSIFi8z2+DL3oHmY6OyKce38SDolg==,
+      }
+    engines: { node: ^18 || ^20 || >= 21 }
+
+  node-gyp-build@4.8.4:
+    resolution:
+      {
+        integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==,
+      }
+    hasBin: true
+
   object-assign@4.1.1:
     resolution:
       {
@@ -2901,6 +2952,13 @@ packages:
         integrity: sha512-9ZhXKM/rw350N1ovuWHbGxnGh/SNJ4cnxHiM0rxE4VN41wsg8P8zWn9hv/buK00RP4WvlOyr/RBDiptyxVbkZQ==,
       }
     engines: { node: '>=0.10.0' }
+
+  postgres@3.4.9:
+    resolution:
+      {
+        integrity: sha512-GD3qdB0x1z9xgFI6cdRD6xu2Sp2WCOEoe3mtnyB5Ee0XrrL5Pe+e4CCnJrRMnL1zYtRDZmQQVbvOttLnKDLnaw==,
+      }
+    engines: { node: '>=12' }
 
   prelude-ls@1.2.1:
     resolution:
@@ -3518,6 +3576,8 @@ snapshots:
 
   '@drizzle-team/brocli@0.12.1': {}
 
+  '@epic-web/invariant@1.0.0': {}
+
   '@esbuild/aix-ppc64@0.25.12':
     optional: true
 
@@ -3738,6 +3798,8 @@ snapshots:
 
   '@keyv/serialize@1.1.1': {}
 
+  '@phc/format@1.0.0': {}
+
   '@pinojs/redact@0.4.0': {}
 
   '@simple-libs/child-process-utils@2.0.0':
@@ -3937,6 +3999,13 @@ snapshots:
 
   ansi-styles@6.2.3: {}
 
+  argon2@0.45.1:
+    dependencies:
+      '@phc/format': 1.0.0
+      cross-env: 10.1.0
+      node-addon-api: 8.9.2
+      node-gyp-build: 4.8.4
+
   argparse@2.0.1: {}
 
   argue-cli@3.2.0: {}
@@ -4060,6 +4129,11 @@ snapshots:
     optionalDependencies:
       typescript: 6.0.3
 
+  cross-env@10.1.0:
+    dependencies:
+      '@epic-web/invariant': 1.0.0
+      cross-spawn: 7.0.6
+
   cross-spawn@7.0.6:
     dependencies:
       path-key: 3.1.1
@@ -4094,10 +4168,11 @@ snapshots:
       get-tsconfig: 4.14.3
       jiti: 2.6.1
 
-  drizzle-orm@1.0.0-rc.4(@types/pg@8.23.1)(pg@8.23.1)(zod@4.6.5):
+  drizzle-orm@1.0.0-rc.4(@types/pg@8.23.1)(pg@8.23.1)(postgres@3.4.9)(zod@4.6.5):
     optionalDependencies:
       '@types/pg': 8.23.1
       pg: 8.23.1
+      postgres: 3.4.9
       zod: 4.6.5
 
   dunder-proto@1.0.1:
@@ -4568,6 +4643,10 @@ snapshots:
     dependencies:
       content-type: 2.1.0
 
+  node-addon-api@8.9.2: {}
+
+  node-gyp-build@4.8.4: {}
+
   object-assign@4.1.1: {}
 
   object-inspect@1.13.4: {}
@@ -4713,6 +4792,8 @@ snapshots:
   postgres-interval@1.2.0:
     dependencies:
       xtend: 4.0.2
+
+  postgres@3.4.9: {}
 
   prelude-ls@1.2.1: {}
 
